@@ -6,6 +6,11 @@ const fetchData = async searchTerm => {
       }
    });
 
+   if (response.data.Error) {
+      console.log(response.data.Errora);
+      return [];
+   }
+
    return response.data.Search;
 };
 
@@ -19,7 +24,7 @@ const onInput = async event => {
 
       div.innerHTML = `
          <img src="${movie.Poster}" alt="${movie.Title}" title="${movie.Title}"/>
-         <h1>${movie.Title}</h1>
+         <h1>$a{movie.Title}</h1>
       `;
 
       document.querySelector('#target').appendChild(div);
